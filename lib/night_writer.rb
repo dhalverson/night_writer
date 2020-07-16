@@ -4,7 +4,7 @@ class NightWriter
     content = File.read(ARGV[0])
     File.write(ARGV[1], content)
 
-    puts "Created #{ARGV[0]} containing 256 characters"
+    puts "Created #{ARGV[0]} containing #{File.write(ARGV[1], content)} characters"
   end
 
 end
