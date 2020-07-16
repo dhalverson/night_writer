@@ -6,5 +6,7 @@ class NightWriter
 
     puts "Created #{ARGV[0]} containing 256 characters"
   end
-  
+
 end
+
+NightWriter.new.read_and_write
