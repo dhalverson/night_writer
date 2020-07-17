@@ -14,4 +14,8 @@ class Alpha
     }
   end
 
+  def translate(char)
+    @braille_chars[char.downcase]
+  end
+
 end

@@ -14,7 +14,8 @@ class AlphaTest < Minitest::Test
   def test_it_can_translate_alpha_to_braille
     alpha = Alpha.new
 
-    assert_equal ['.0', '00', '00'], alpha.translate(char)
+    assert_equal ['.0', '00', '00'], alpha.translate("a")
+    assert_equal ['.0', '0.', '..'], alpha.translate("Z")
   end
 
 end
