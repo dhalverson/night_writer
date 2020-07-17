@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/night_writer'
+# require './lib/night_writer'
 require './lib/alpha'
 
 class AlphaTest < Minitest::Test
