@@ -18,4 +18,13 @@ class Alpha
     @braille_chars[char.downcase]
   end
 
+  def aaa
+    result = []
+    ["H", "e", "l"].each do |char|
+      result << translate(char)
+    end
+    p result
+    require "pry"; binding.pry
+  end
+
 end

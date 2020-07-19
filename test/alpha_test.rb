@@ -18,4 +18,9 @@ class AlphaTest < Minitest::Test
     assert_equal ['.0', '0.', '..'], alpha.translate("Z")
   end
 
+  def test_it_can
+    alpha = Alpha.new
+    assert_equal 1, alpha.aaa
+  end
+
 end
