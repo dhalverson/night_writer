@@ -1,17 +1,22 @@
+require './lib/alpha'
+
 class NightWriter
 
 input_file = ARGV[0]
 output_file = ARGV[1]
 
-alpha_message = File.read(input_file)
+# Reads from file, removes new lines
+# => "Hello WorldThis project is hard"
+alpha_message = (File.read(input_file)).tr("\n", "")
 
-alpha = Alpha.new
 
 result = []
 alpha_message.chars.each do |char|
-  result << char
+  alpha = Alpha.new(char)
+  result << alpha.translate(char)
 end
-require "pry"; binding.pry
+
+p result
 
 
 
