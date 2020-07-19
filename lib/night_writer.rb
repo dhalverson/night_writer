@@ -3,9 +3,9 @@ class NightWriter
 input_file = ARGV[0]
 output_file = ARGV[1]
 
-alpha_message = File.read(ARGV[0])
-
+alpha_message = File.read(input_file)
 require "pry"; binding.pry
+
 
 
 

@@ -1,5 +1,3 @@
-Hello world
+Hello World
 
 This project is hard
-
-Add more characters
