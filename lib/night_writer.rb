@@ -4,6 +4,13 @@ input_file = ARGV[0]
 output_file = ARGV[1]
 
 alpha_message = File.read(input_file)
+
+alpha = Alpha.new
+
+result = []
+alpha_message.chars.each do |char|
+  result << char
+end
 require "pry"; binding.pry
 
 
