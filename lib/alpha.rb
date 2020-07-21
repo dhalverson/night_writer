@@ -1,7 +1,7 @@
 class Alpha
 
 # This can likely be moved to a module, moving any state/methods to translator
-
+  attr_reader :braille_chars
   def initialize
     @braille_chars = {
       "a" => ['.0', '00', '00'], "b" => ['.0', '.0', '00'], "c" => ['..', '00', '00'],

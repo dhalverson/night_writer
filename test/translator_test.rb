@@ -28,8 +28,8 @@ class TranslatorTest < Minitest::Test
   def test_it_can_translate_characters_to_braille
     translator = Translator.new("Hello World")
 
-    expected = [[".0", "..", "00"], [".0", "0.", "00"], [".0", ".0", ".0"], [".0", ".0", ".0"], [".0", "0.", ".0"], nil, ["0.", "..", "0."], [".0", "0.", ".0"], [".0", "..", ".0"], [".0", ".0", ".0"]]
-    assert_equal expected, translator.alpha_to_braille("Hello World")
+    expected = [[".0", "..", "00"], [".0", "0.", "00"], [".0", ".0", ".0"], [".0", ".0", ".0"], [".0", "0.", ".0"], nil, ["0.", "..", "0."], [".0", "0.", ".0"], [".0", "..", ".0"], [".0", ".0", ".0"], ["..", "0.", "00"]]
+    assert_equal expected, translator.characters_to_braille("Hello World")
 
   end
 
