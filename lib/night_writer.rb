@@ -1,7 +1,7 @@
 require './lib/alpha'
 
 class NightWriter
-  
+
 input_file = ARGV[0]
 output_file = ARGV[1]
 
@@ -10,11 +10,6 @@ output_file = ARGV[1]
 alpha_message = (File.read(input_file)).tr("\n", "")
 
 
-result = []
-alpha_message.chars.each do |char|
-  alpha = Alpha.new(char)
-  result << alpha.translate(char)
-end
 
 puts "Created #{ARGV[0]} containing #{File.write(ARGV[1], alpha_message)} characters"
 

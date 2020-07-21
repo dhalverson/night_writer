@@ -30,7 +30,6 @@ class TranslatorTest < Minitest::Test
 
     expected = [[".0", "..", "00"], [".0", "0.", "00"], [".0", ".0", ".0"], [".0", ".0", ".0"], [".0", "0.", ".0"], nil, ["0.", "..", "0."], [".0", "0.", ".0"], [".0", "..", ".0"], [".0", ".0", ".0"], ["..", "0.", "00"]]
     assert_equal expected, translator.characters_to_braille("Hello World")
-
   end
 
 end
