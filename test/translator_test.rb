@@ -12,6 +12,12 @@ class TranslatorTest < Minitest::Test
     assert_instance_of Translator, translator
   end
 
+  def test_it_has_attributes
+    translator = Translator.new("Hello World")
+
+    assert_equal "Hello World", translator.message
+
+  end
 
 
 end
