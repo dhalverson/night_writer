@@ -6,7 +6,9 @@ class Translator
     @alpha = Alpha.new
   end
 
-
+  def create_characters(message)
+    message.downcase.chars
+  end
 
 
   # def translate(char)

@@ -21,7 +21,15 @@ class TranslatorTest < Minitest::Test
   def test_it_can_break_message_into_lowercase_characters
     translator = Translator.new("Hello World")
 
-    assert_equal ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"], translator.characters
+    expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+    assert_equal expected, translator.create_characters("Hello World")
+  end
+
+  def test_it_can_translate_characters_to_braille
+    translator = Translator.new("Hello World")
+
+    expected = [[".0", "..", "00"], [".0", "0.", "00"], [".0", ".0", ".0"], [".0", ".0", ".0"], [".0", "0.", ".0"], nil, ["0.", "..", "0."], [".0", "0.", ".0"], [".0", "..", ".0"], [".0", ".0", ".0"]]
+    assert_equal expected, translator.alpha_to_braille("Hello World")
 
   end
 
