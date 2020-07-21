@@ -1,5 +1,7 @@
 class Alpha
 
+# This can likely be moved to a module, moving any state/methods to translator
+
   def initialize
     @braille_chars = {
       "a" => ['.0', '00', '00'], "b" => ['.0', '.0', '00'], "c" => ['..', '00', '00'],
@@ -13,11 +15,4 @@ class Alpha
       "y" => ['..', '0.', '..'], "z" => ['.0', '0.', '..']
     }
   end
-
-  def translate(char)
-    @braille_chars[char.downcase]
-  end
-
-
-
 end
