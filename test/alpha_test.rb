@@ -18,4 +18,6 @@ class AlphaTest < Minitest::Test
     assert_equal ['.0', '0.', '..'], alpha.translate("Z")
   end
 
+
+
 end
