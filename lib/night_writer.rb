@@ -13,12 +13,11 @@ alpha_message = (File.read(input_file)).tr("\n", "")
 # translates the message to braille
 translator = Translator.new
 braille_message = translator.characters_to_braille(alpha_message)
-require "pry"; binding.pry
 
 # This should take the message, and write it to the braille file after translating
-writer = File.open(output_file, 'w')
-writer.write(braille_message)
-writer.close
+output = File.open(output_file, 'w+')
+output.write(braille_message)
+output.close
 
 puts "Created #{ARGV[1]} containing #{File.write(ARGV[1], alpha_message)} characters"
 
