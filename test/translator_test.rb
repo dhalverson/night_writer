@@ -43,5 +43,12 @@ class TranslatorTest < Minitest::Test
     assert_equal "..0..0.00.", translator.mid_braille("hello")
   end
 
+  def test_it_can_display_bottom_braille
+    translator = Translator.new
+
+    assert_equal "00", translator.bottom_braille("h")
+    assert_equal "0000.0.0.0", translator.bottom_braille("hello")
+  end
+
 
 end
