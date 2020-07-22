@@ -50,5 +50,11 @@ class TranslatorTest < Minitest::Test
     assert_equal "0000.0.0.0", translator.bottom_braille("hello")
   end
 
+  def test_it_can_display_whole_braille
+    translator = Translator.new
+
+    assert_equal ".0\n..\n00", translator.whole_braille("h")
+    assert_equal ".0.0.0.0.0\n..0..0.00.\n0000.0.0.0", translator.whole_braille("hello")
+  end
 
 end

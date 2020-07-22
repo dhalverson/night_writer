@@ -42,4 +42,11 @@ class Translator
     result.join
   end
 
+  def whole_braille(message)
+    top_braille(message) + "\n" +
+    mid_braille(message) + "\n" +
+    bottom_braille(message)
+  end
+
+
 end
