@@ -18,5 +18,11 @@ class Translator
     result
   end
 
-
+  def top_braille(message)
+    result = []
+    characters_to_braille(message).each do |array|
+      result << array.first
+    end
+    result.join
+  end
 end
