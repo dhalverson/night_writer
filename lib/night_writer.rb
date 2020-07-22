@@ -12,7 +12,8 @@ alpha_message = (File.read(input_file)).tr("\n", "")
 
 # translates the message to braille
 translator = Translator.new
-braille_message = translator.characters_to_braille(alpha_message)
+braille_message = translator.whole_braille(alpha_message)
+
 
 # This should take the message, and write it to the braille file after translating
 output = File.open(output_file, 'w+')
