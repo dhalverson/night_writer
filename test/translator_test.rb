@@ -7,26 +7,23 @@ require './lib/translator'
 class TranslatorTest < Minitest::Test
 
   def test_it_exists
-    translator = Translator.new("Hello World")
+    translator = Translator.new
 
     assert_instance_of Translator, translator
   end
 
   def test_it_has_attributes
-    translator = Translator.new("Hello World")
-
-    assert_equal "Hello World", translator.message
   end
 
   def test_it_can_break_message_into_lowercase_characters
-    translator = Translator.new("Hello World")
+    translator = Translator.new
 
     expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
     assert_equal expected, translator.create_characters("Hello World")
   end
 
   def test_it_can_translate_characters_to_braille
-    translator = Translator.new("Hello World")
+    translator = Translator.new
 
     expected = [[".0", "..", "00"], [".0", "0.", "00"], [".0", ".0", ".0"], [".0", ".0", ".0"], [".0", "0.", ".0"], nil, ["0.", "..", "0."], [".0", "0.", ".0"], [".0", "..", ".0"], [".0", ".0", ".0"], ["..", "0.", "00"]]
     assert_equal expected, translator.characters_to_braille("Hello World")
