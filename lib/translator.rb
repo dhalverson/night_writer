@@ -19,27 +19,27 @@ class Translator
   end
 
   def top_braille(message)
-    result = []
-    characters_to_braille(message).each do |array|
-      result << array.first
+    result = ""
+    characters_to_braille(message).each do |braille|
+      result << braille.first
     end
-    result.join
+    result
   end
 
   def mid_braille(message)
-    result = []
-    characters_to_braille(message).each do |array|
-      result << array[1]
+    result = ""
+    characters_to_braille(message).each do |braille|
+      result << braille[1]
     end
-    result.join
+    result
   end
 
   def bottom_braille(message)
-    result = []
-    characters_to_braille(message).each do |array|
-      result << array.last
+    result = ""
+    characters_to_braille(message).each do |braille|
+      result << braille.last
     end
-    result.join
+    result
   end
 
 # use each_slice(80).map(&:join)
@@ -51,4 +51,3 @@ class Translator
 
 
 end
-0. 0. 0. 0. 0. .. .0 0. 0. 0. 00
