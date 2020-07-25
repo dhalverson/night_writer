@@ -8,16 +8,15 @@ output_file = ARGV[1]
 
 # Reads from file, removes new lines
 # => "Hello WorldThis project is hard"
-alpha_message = (File.read(input_file)).tr("\n", "")
+alpha_message = (File.read(input_file)).strip
 
 # translates the message to braille
 translator = Translator.new
 braille_message = translator.whole_braille(alpha_message)
 
-
 # This should take the message, and write it to the braille file after translating
 output = File.open(output_file, 'w+')
-output.write(braille_message)
+output.write("Text goes here")
 output.close
 
 puts "Created #{ARGV[1]} containing #{File.write(ARGV[1], alpha_message)} characters"
