@@ -15,11 +15,11 @@ translator = Translator.new
 braille_message = translator.whole_braille(alpha_message)
 
 # This should take the message, and write it to the braille file after translating
-output = File.open(output_file, 'w+')
-output.write("Text goes here")
+output = File.open(output_file, 'w')
+output.write(braille_message)
 output.close
 
-puts "Created #{ARGV[1]} containing #{File.write(ARGV[1], alpha_message)} characters"
+puts "Created #{output_file} containing #{File.write(output_file, alpha_message)} characters"
 
 
 
