@@ -11,9 +11,10 @@ translator = Translator.new
 braille_message = translator.whole_braille(alpha_message)
 
 writer = File.open(ARGV[1], "w")
-writer.write("text goes here")
+writer.write(braille_message)
 writer.close
 
+require "pry"; binding.pry
 
 # input_file = ARGV[0]
 # output_file = ARGV[1]
