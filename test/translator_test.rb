@@ -25,37 +25,44 @@ class TranslatorTest < Minitest::Test
   def test_it_can_translate_characters_to_braille
     translator = Translator.new
 
-    expected = [[".0", "..", "00"], [".0", "0.", "00"], [".0", ".0", ".0"], [".0", ".0", ".0"], [".0", "0.", ".0"], ["..", "..", ".."], ["0.", "..", "0."], [".0", "0.", ".0"], [".0", "..", ".0"], [".0", ".0", ".0"], ["..", "0.", "00"]]
+    expected = [["0.", "00", ".."], ["0.", ".0", ".."], ["0.", "0.", "0."], ["0.", "0.", "0."], ["0.", ".0", "0."], ["..", "..", ".."], [".0", "00", ".0"], ["0.", ".0", "0."], ["0.", "00", "0."], ["0.", "0.", "0."], ["00", ".0", ".."]]
     assert_equal expected, translator.characters_to_braille("Hello World")
   end
 
   def test_it_can_display_top_braille
     translator = Translator.new
 
-    assert_equal ".0", translator.top_braille("h")
-    assert_equal ".0.0.0.0.0", translator.top_braille("hello")
+    assert_equal "0.", translator.top_braille("h")
+    assert_equal "0.0.0.0.0.", translator.top_braille("hello")
   end
 
   def test_it_can_display_mid_braille
     translator = Translator.new
 
-    assert_equal "..", translator.mid_braille("h")
-    assert_equal "..0..0.00.", translator.mid_braille("hello")
+    assert_equal "00", translator.mid_braille("h")
+    assert_equal "00.00.0..0", translator.mid_braille("hello")
   end
 
   def test_it_can_display_bottom_braille
     translator = Translator.new
 
-    assert_equal "00", translator.bottom_braille("h")
-    assert_equal "0000.0.0.0", translator.bottom_braille("hello")
+    assert_equal "..", translator.bottom_braille("h")
+    assert_equal "....0.0.0.", translator.bottom_braille("hello")
   end
 
   def test_it_can_display_whole_braille
     translator = Translator.new
 
-    assert_equal ".0\n..\n00", translator.whole_braille("h")
-    assert_equal ".0.0.0.0.0\n..0..0.00.\n0000.0.0.0", translator.whole_braille("hello")
-    assert_equal ".0.0.0.0.0..0.\n..0..0.00.....\n0000.0.0.0..0.", translator.whole_braille("hello w")
+    assert_equal "0.\n00\n..", translator.whole_braille("h")
+    assert_equal "0.0.0.0.0.\n00.00.0..0\n....0.0.0.", translator.whole_braille("hello")
+    assert_equal "0.0.0.0.0....0\n00.00.0..0..00\n....0.0.0....0", translator.whole_braille("hello w")
+  end
+
+  def test_it_can_split_over_80_characters_to_new_line
+    skip
+    translator = Translator.new
+
+    assert_equal
   end
 
 end
