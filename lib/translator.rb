@@ -13,7 +13,7 @@ class Translator
   def characters_to_braille(message)
     result = []
     create_characters(message).each do |character|
-      result << @alpha.braille_chars[character]
+      result << @alpha.braille_chars[character] ||= ["nil","nil","nil"]
     end
     result
   end
@@ -44,9 +44,9 @@ class Translator
 
 # use each_slice(80).map(&:join)
   def whole_braille(message)
-    top_braille(message) + "\n" +
-    mid_braille(message) + "\n" +
-    bottom_braille(message)
+    top_braille(message).scan(/.{1,80}/).join("\n") + "\n" +
+    mid_braille(message).scan(/.{1,80}/).join("\n") + "\n" +
+    bottom_braille(message).scan(/.{1,80}/).join("\n")
   end
 
 
