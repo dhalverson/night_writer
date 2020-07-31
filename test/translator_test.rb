@@ -58,11 +58,11 @@ class TranslatorTest < Minitest::Test
     assert_equal "0.0.0.0.0....0\n00.00.0..0..00\n....0.0.0....0", translator.whole_braille("hello w")
   end
 
-  def test_it_can_split_over_80_characters_to_new_line
-    skip
+  def test_it_can_translate_40_chars
     translator = Translator.new
 
-    assert_equal
+    expected = "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................"
+    assert_equal expected, translator.whole_braille("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   end
 
 end
