@@ -44,9 +44,15 @@ class Translator
 
 # use each_slice(80).map(&:join)
   def whole_braille(message)
-    top_braille(message).scan(/.{1,80}/).join("\n") + "\n" +
-    mid_braille(message).scan(/.{1,80}/).join("\n") + "\n" +
-    bottom_braille(message).scan(/.{1,80}/).join("\n")
+    if message.length > 40
+      top_braille(message).scan(/.{1,79}/).join("\n") +
+      mid_braille(message).scan(/.{1,79}/).join("\n") +
+      bottom_braille(message)
+    else
+      top_braille(message) + "\n" +
+      mid_braille(message) + "\n" +
+      bottom_braille(message)
+    end
   end
 
 
