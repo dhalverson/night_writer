@@ -18,6 +18,10 @@ class Translator
     result
   end
 
+  def format_braille(message)
+    characters_to_braille(message).transpose
+  end
+
 #   def top_braille(message)
 #     result = ""
 #     characters_to_braille(message).each do |braille|

@@ -26,6 +26,7 @@ class TranslatorTest < Minitest::Test
     translator = Translator.new
 
     assert_equal [["0.", "00", ".."]], translator.characters_to_braille("h")
+
     expected = [["0.", "00", ".."], ["0.", ".0", ".."], ["0.", "0.", "0."], ["0.", "0.", "0."], ["0.", ".0", "0."], ["..", "..", ".."], [".0", "00", ".0"], ["0.", ".0", "0."], ["0.", "00", "0."], ["0.", "0.", "0."], ["00", ".0", ".."]]
     assert_equal expected, translator.characters_to_braille("Hello World")
   end
@@ -33,8 +34,8 @@ class TranslatorTest < Minitest::Test
   def test_it_can_display_braille_in_rows
     translator = Translator.new
 
-    assert_equal "0.\n00\n..", translator.format_braille("h")
-    assert_equal "0.0.0.0.0.\n00.00.0..0\n....0.0.0.", translator.format_braille("hello")
+    assert_equal [["0."], ["00"], [".."]], translator.format_braille("h")
+    assert_equal [["0.", "0.", "0.", "0.", "0."], ["00", ".0", "0.", "0.", ".0"], ["..", "..", "0.", "0.", "0."]], translator.format_braille("hello")
     assert_equal [["0.", "0.", "0.", "0.", "0.", "..", ".0", "0.", "0.", "0.", "00"], ["00", ".0", "0.", "0.", ".0", "..", "00", ".0", "00", "0.", ".0"], ["..", "..", "0.", "0.", "0.", "..", ".0", "0.", "0.", "0.", ".."]], translator.format_braille("hello world")
   end
 
