@@ -18,14 +18,20 @@ class Translator
     result
   end
 
+
+# [["0.", "0.", "0.", "0.", "0."], ["00", ".0", "0.", "0.", ".0"], ["..", "..", "0.", "0.", "0."]]
   def format_braille(message)
     characters_to_braille(message).transpose
   end
 
-  def message_length
+
+# this will be used for if statement, if over 80 chars
+  def message_length(message)
+    message.chars.count
+  end
 
   def display_braille(message)
-    require "pry"; binding.pry
+    format_braille(message)
   end
 
 
