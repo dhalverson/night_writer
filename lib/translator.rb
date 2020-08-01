@@ -22,9 +22,11 @@ class Translator
     characters_to_braille(message).transpose
   end
 
-  # def display_braille(message)
-  #   require "pry"; binding.pry
-  # end
+  def message_length
+
+  def display_braille(message)
+    require "pry"; binding.pry
+  end
 
 
 #
