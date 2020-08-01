@@ -35,8 +35,10 @@ class TranslatorTest < Minitest::Test
     translator = Translator.new
 
     assert_equal [["0."], ["00"], [".."]], translator.format_braille("h")
-    assert_equal [["0.", "0.", "0.", "0.", "0."], ["00", ".0", "0.", "0.", ".0"], ["..", "..", "0.", "0.", "0."]], translator.format_braille("hello")
-    assert_equal [["0.", "0.", "0.", "0.", "0.", "..", ".0", "0.", "0.", "0.", "00"], ["00", ".0", "0.", "0.", ".0", "..", "00", ".0", "00", "0.", ".0"], ["..", "..", "0.", "0.", "0.", "..", ".0", "0.", "0.", "0.", ".."]], translator.format_braille("hello world")
+    expected = [["0.", "0.", "0.", "0.", "0."], ["00", ".0", "0.", "0.", ".0"], ["..", "..", "0.", "0.", "0."]]
+    assert_equal expected, translator.format_braille("hello")
+    expected = [["0.", "0.", "0.", "0.", "0.", "..", ".0", "0.", "0.", "0.", "00"], ["00", ".0", "0.", "0.", ".0", "..", "00", ".0", "00", "0.", ".0"], ["..", "..", "0.", "0.", "0.", "..", ".0", "0.", "0.", "0.", ".."]]
+    assert_equal expected, translator.format_braille("hello world")
   end
 
   # def test_it_can_display_top_braille
