@@ -22,6 +22,10 @@ class Translator
     characters_to_braille(message).transpose
   end
 
+  # def display_braille(message)
+  #   require "pry"; binding.pry
+  # end
+
 #   def top_braille(message)
 #     result = ""
 #     characters_to_braille(message).each do |braille|

@@ -31,7 +31,7 @@ class TranslatorTest < Minitest::Test
     assert_equal expected, translator.characters_to_braille("Hello World")
   end
 
-  def test_it_can_display_braille_in_rows
+  def test_it_can_format_braille_in_groups_by_row
     translator = Translator.new
 
     assert_equal [["0."], ["00"], [".."]], translator.format_braille("h")
@@ -41,12 +41,12 @@ class TranslatorTest < Minitest::Test
     assert_equal expected, translator.format_braille("hello world")
   end
 
-  # def test_it_can_display_top_braille
-  #   translator = Translator.new
-  #
-  #   assert_equal "0.", translator.top_braille("h")
-  #   assert_equal "0.0.0.0.0.", translator.top_braille("hello")
-  # end
+  def test_it_can_display_top_braille_row
+    translator = Translator.new
+
+    assert_equal ["0."], translator.format_braille("h").first
+    assert_equal ["0.", "0.", "0.", "0.", "0."], translator.format_braille("hello").first
+  end
   #
   # def test_it_can_display_mid_braille
   #   translator = Translator.new
