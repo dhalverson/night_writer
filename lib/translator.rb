@@ -13,47 +13,41 @@ class Translator
   def characters_to_braille(message)
     result = []
     create_characters(message).each do |character|
-      result << @alpha.braille_chars[character] ||= ["nil","nil","nil"]
+      result << @alpha.braille_chars[character] ||= ["X","X","X"]
     end
     result
   end
 
-  def top_braille(message)
-    result = ""
-    characters_to_braille(message).each do |braille|
-      result << braille.first
-    end
-    result
-  end
-
-  def mid_braille(message)
-    result = ""
-    characters_to_braille(message).each do |braille|
-      result << braille[1]
-    end
-    result
-  end
-
-  def bottom_braille(message)
-    result = ""
-    characters_to_braille(message).each do |braille|
-      result << braille.last
-    end
-    result
-  end
-
-# use each_slice(80).map(&:join)
-  def whole_braille(message)
-    if message.length > 40
-      top_braille(message).scan(/.{1,79}/).join("\n") +
-      mid_braille(message).scan(/.{1,79}/).join("\n") +
-      bottom_braille(message)
-    else
-      top_braille(message) + "\n" +
-      mid_braille(message) + "\n" +
-      bottom_braille(message)
-    end
-  end
+#   def top_braille(message)
+#     result = ""
+#     characters_to_braille(message).each do |braille|
+#       result << braille.first
+#     end
+#     result
+#   end
+#
+#   def mid_braille(message)
+#     result = ""
+#     characters_to_braille(message).each do |braille|
+#       result << braille[1]
+#     end
+#     result
+#   end
+#
+#   def bottom_braille(message)
+#     result = ""
+#     characters_to_braille(message).each do |braille|
+#       result << braille.last
+#     end
+#     result
+#   end
+#
+# # use each_slice(80).map(&:join)
+#   def whole_braille(message)
+#       top_braille(message) + "\n" +
+#       mid_braille(message) + "\n" +
+#       bottom_braille(message)
+#   end
 
 
 end
