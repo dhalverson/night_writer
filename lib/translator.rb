@@ -26,29 +26,7 @@ class Translator
   #   require "pry"; binding.pry
   # end
 
-#   def top_braille(message)
-#     result = ""
-#     characters_to_braille(message).each do |braille|
-#       result << braille.first
-#     end
-#     result
-#   end
-#
-#   def mid_braille(message)
-#     result = ""
-#     characters_to_braille(message).each do |braille|
-#       result << braille[1]
-#     end
-#     result
-#   end
-#
-#   def bottom_braille(message)
-#     result = ""
-#     characters_to_braille(message).each do |braille|
-#       result << braille.last
-#     end
-#     result
-#   end
+
 #
 # # use each_slice(80).map(&:join)
 #   def whole_braille(message)
