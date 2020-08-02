@@ -7,8 +7,4 @@ class NightReaderTest < Minitest::Test
   def test_it_exists
     night_reader = NightReader.new
   end
-
-
-
-
 end

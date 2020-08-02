@@ -85,12 +85,19 @@ class TranslatorTest < Minitest::Test
   #   assert_equal expected, translator.display_braille("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   # end
 
-  def test_it_can_translate_over_40_chars_to_new_line
+  # def test_it_can_translate_over_40_chars_to_new_line
+  #   translator = Translator.new
+  #
+  #   # expected = "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n0.\n.0\n00"
+  #   # assert_equal expected, translator.display_braille("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz")
+  #   assert_equal "0.0.\n0.\n....\n..\n....\n..", translator.display_braille("aaa")
+  # end
+
+  def test_it_can_return_braille_as_single_string
     translator = Translator.new
 
-    # expected = "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n0.\n.0\n00"
-    # assert_equal expected, translator.display_braille("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz")
-    assert_equal "0.0.\n0.\n....\n..\n....\n..", translator.display_braille("aaa")
+    assert_equal "0.00..", translator.create_braille("h")
   end
+
 
 end

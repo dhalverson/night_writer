@@ -19,6 +19,8 @@ class Translator
   end
 
 
+
+
 # [["0.", "0.", "0.", "0.", "0."], ["00", ".0", "0.", "0.", ".0"], ["..", "..", "0.", "0.", "0."]]
   def format_braille(message)
     characters_to_braille(message).transpose
@@ -46,13 +48,7 @@ class Translator
 
 
 
-#
-# # use each_slice(80).map(&:join)
-#   def whole_braille(message)
-#       top_braille(message) + "\n" +
-#       mid_braille(message) + "\n" +
-#       bottom_braille(message)
-#   end
+
 
 
 end
