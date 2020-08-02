@@ -29,12 +29,21 @@ class Translator
     message.chars.count
   end
 
+      # result << format_braille(message)[0].join("").scan(/.{4}/)
   def display_braille(message)
     result = ""
-    result << format_braille(message)[0].join("") << "\n"
-    result << format_braille(message)[1].join("") << "\n"
-    result << format_braille(message)[2].join("")
+    if message_length(message) <= 2
+      result << format_braille(message)[0].join("") << "\n"
+      result << format_braille(message)[1].join("") << "\n"
+      result << format_braille(message)[2].join("")
+    else
+      result << format_braille(message)[0].each_slice(2)
+      result << format_braille(message)[1].each_slice(2)
+      result << format_braille(message)[2].each_slice(2)
+    end
   end
+
+
 
 
 #
