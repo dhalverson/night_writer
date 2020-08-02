@@ -37,9 +37,9 @@ class Translator
       result << format_braille(message)[1].join("") << "\n"
       result << format_braille(message)[2].join("")
     else
-      result << format_braille(message)[0].each_slice(2)
-      result << format_braille(message)[1].each_slice(2)
-      result << format_braille(message)[2].each_slice(2)
+      result << format_braille(message)[0].join("") << "\n"
+      result << format_braille(message)[1].join("") << "\n"
+      result << format_braille(message)[2].join("")
     end
   end
 
