@@ -96,7 +96,7 @@ class TranslatorTest < Minitest::Test
   def test_it_can_return_braille_as_single_string
     translator = Translator.new
 
-    assert_equal "0.00..", translator.create_braille("h")
+    assert_equal "h", translator.create_braille("0.00..")
   end
 
 

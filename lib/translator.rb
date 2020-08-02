@@ -9,6 +9,12 @@ class Translator
     message.downcase.chars
   end
 
+  def create_braille(braille)
+    @alpha.braille_chars.invert[braille.scan(/.{2}/)]
+  end
+
+
+
 # this should translate each individual char to it's braille equiv
   def characters_to_braille(message)
     result = []
