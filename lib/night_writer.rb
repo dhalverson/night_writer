@@ -10,7 +10,7 @@ class NightWriter
   input.close
 
   translator = Translator.new
-  braille_message = translator.whole_braille(alpha_message)
+  braille_message = translator.display_braille(alpha_message)
 
   writer = File.open(output_file, 'w') { |file| file.write(braille_message) }
 

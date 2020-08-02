@@ -24,14 +24,16 @@ class Translator
     characters_to_braille(message).transpose
   end
 
-
 # this will be used for if statement, if over 80 chars
   def message_length(message)
     message.chars.count
   end
 
   def display_braille(message)
-    format_braille(message)
+    result = ""
+    result << format_braille(message)[0].join("") << "\n"
+    result << format_braille(message)[1].join("") << "\n"
+    result << format_braille(message)[2].join("")
   end
 
 
