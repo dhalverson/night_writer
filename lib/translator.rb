@@ -1,18 +1,18 @@
-class Translator
+require './lib/alpha'
 
-  def initialize
-    @alpha = Alpha.new
-    @braille = Alpha.new.braille_chars.invert
-  end
+class Translator
+  include Alpha
 
   def create_characters(message)
     message.downcase.chars
   end
 
   def characters_to_braille(message)
+  
+
     result = []
     create_characters(message).each do |character|
-      result << @alpha.braille_chars[character]
+      result << braille_chars[character]
     end
     result
   end
@@ -35,12 +35,13 @@ class Translator
     result.join
   end
 
+# ------------------------------------
 
 
-# braille to english code here
 
 
-# this will be used for if statement, if over 80 chars
+
+
   def message_length(message)
     message.chars.count
   end
@@ -72,7 +73,7 @@ class Translator
 # [["0.", "00", ".."], ["0.", ".0", ".."]]
   def braille_to_english(braille)
     braille_group(braille).map do |letter|
-      @braille[letter]
+      braille_chars.invert[letter]
     end
   end
 
