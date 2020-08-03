@@ -98,7 +98,9 @@ class TranslatorTest < Minitest::Test
   end
 
   def test_it_can_return_braille_word_into_three_rows
+    translator = Translator.new
 
+    assert_equal [["0.0.", "00.0", "...."]], translator.braille_to_rows("0.0.\n00.0\n....")
   end
 
 

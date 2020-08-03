@@ -36,8 +36,17 @@ class Translator
       message.chars.count
     end
 
+# [["0.0."], ["00.0"], ["...."]]
     def braille_to_rows(braille)
-      braille.scan(/.{1,2}/)
+      top = []
+      mid = []
+      bot = []
+      array = braille.split("\n")
+      top << array[0]
+      mid << array[1]
+      bot << array[2]
+      top.zip(mid, bot).transpose
+      require "pry"; binding.pry
     end
 
 
