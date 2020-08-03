@@ -2,17 +2,19 @@ require './lib/alpha'
 require './lib/translator'
 
 class NightWriter
-  input_file = ARGV[0]
-  output_file = ARGV[1]
+  include Alpha
 
-  input = File.open(input_file, 'r')
-  alpha_message = input.read.strip
-  input.close
+    input_file = ARGV[0]
+    output_file = ARGV[1]
 
-  translator = Translator.new
-  braille_message = translator.display_braille(alpha_message)
+    input = File.open(input_file, 'r')
+    alpha_message = input.read.strip
+    input.close
 
-  writer = File.open(output_file, 'w') { |file| file.write(braille_message) }
+    translator = Translator.new
+    braille_message = translator.display_braille(alpha_message)
 
-  puts "Created #{output_file} containing #{alpha_message.chars.count} characters"
+    writer = File.open(output_file, 'w') { |file| file.write(braille_message) }
+
+    puts "Created #{output_file} containing #{alpha_message.chars.count} characters"
 end
