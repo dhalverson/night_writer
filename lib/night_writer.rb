@@ -2,6 +2,7 @@ require './lib/alpha'
 require './lib/translator'
 
 class NightWriter
+  
   input_file = ARGV[0]
   output_file = ARGV[1]
 

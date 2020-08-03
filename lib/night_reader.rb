@@ -3,16 +3,15 @@ require './lib/translator'
 
 class NightReader
 
-    input_file = ARGV[0]
-    output_file = ARGV[1]
+    input_file = ARGV[1]
+    output_file = ARGV[0]
 
     input = File.open(input_file, 'r')
-    alpha_message = input.read.strip
+    braille_message = input.read.strip
     input.close
 
     translator = Translator.new
-    alpha_message = translator.
-    # braille_message = translator.display_braille(alpha_message)
+    alpha_message = translator.display_english(braille_message)
 
     writer = File.open(output_file, 'w') { |file| file.write(alpha_message) }
 

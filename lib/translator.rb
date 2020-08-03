@@ -21,15 +21,6 @@ class Translator
     characters_to_braille(message).transpose
   end
 
-  # def braille_array_to_string(message)
-  #   result = {}
-  #   format_braille(message).each do |row|
-  #     require "pry"; binding.pry
-  #     result[:top] = row[0], result[:mid] = row[1], result[:bot] = row[2]
-  #   end
-  #   result
-  # end
-
   def display_braille(message)
     result = []
     if message_length(message) < 40
@@ -86,7 +77,6 @@ class Translator
   end
 
   def display_english(braille)
-    require "pry"; binding.pry
     braille_to_english(braille).join
   end
 
