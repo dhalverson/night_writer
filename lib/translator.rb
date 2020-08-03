@@ -1,7 +1,7 @@
-require './lib/alpha'
+require './lib/alphabetable'
 
 class Translator
-  include Alpha
+  include Alphabetable
 
   def create_characters(message)
     message.downcase.chars

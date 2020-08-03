@@ -1,4 +1,4 @@
-module Alpha
+module Alphabetable
 
   def braille_chars
     {
