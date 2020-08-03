@@ -59,7 +59,17 @@ class Translator
     braille.scan(/.{1,#{string}}/)
   end
 
+  def top_row(braille)
+    split_braille(braille).fetch(0).scan(/.{1,2}/)
+  end
 
+  def mid_row(braille)
+    split_braille(braille).fetch(1).scan(/.{1,2}/)
+  end
+
+  def bot_row(braille)
+    split_braille(braille).fetch(2).scan(/.{1,2}/)
+  end
 
 # [["0.0."], ["00.0"], ["...."]]
   # def braille_to_rows(braille)

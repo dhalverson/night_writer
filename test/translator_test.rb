@@ -116,12 +116,27 @@ class TranslatorTest < Minitest::Test
     assert_equal ["0.0.", "00.0", "...."], translator.split_braille("0.0.\n00.0\n....")
   end
 
-  def test_it_can_return_first
+  def test_it_can_return_top_row
     translator = Translator.new
 
-    assert_equal ["0.", "00", ".."], translator.first_element("0.0.\n00.0\n....")
+    assert_equal ["0.", "0."], translator.top_row("0.0.\n00.0\n....")
   end
 
+  def test_it_can_return_mid_row
+    translator = Translator.new
 
+    assert_equal ["00", ".0"], translator.mid_row("0.0.\n00.0\n....")
+  end
+  def test_it_can_return_bot_row
+    translator = Translator.new
+
+    assert_equal ["..", ".."], translator.bot_row("0.0.\n00.0\n....")
+  end
+
+  def test_it_can_group_braille_together
+    translator = Translator.new
+
+    assert_equal "0.\n00\n..", translator.braille_group("0.0.\n00.0\n....")
+  end
 
 end
