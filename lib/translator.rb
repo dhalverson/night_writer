@@ -43,8 +43,7 @@ class Translator
   end
 
   def split_braille(braille)
-    string = (braille.length / 3)
-    braille.scan(/.{1,#{string}}/)
+    braille.split(/\n/)
   end
 
   def top_row(braille)
