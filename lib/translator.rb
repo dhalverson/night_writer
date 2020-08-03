@@ -8,13 +8,9 @@ class Translator
   end
 
   def characters_to_braille(message)
-  
-
-    result = []
-    create_characters(message).each do |character|
-      result << braille_chars[character]
+    create_characters(message).map do |char|
+      braille_chars[char]
     end
-    result
   end
 
   def format_braille(message)
@@ -35,9 +31,6 @@ class Translator
     result.join
   end
 
-# ------------------------------------
-
-
 
 
 
@@ -47,32 +40,18 @@ class Translator
   end
 
   def split_braille(braille)
-    string = (braille.length / 3)
-    braille.scan(/.{1,#{string}}/)
+    braille.split(/\n/)
   end
 
-  def top_row(braille)
-    split_braille(braille).fetch(0).scan(/.{1,2}/)
-  end
-
-  def mid_row(braille)
-    split_braille(braille).fetch(1).scan(/.{1,2}/)
-  end
-
-  def bot_row(braille)
-    split_braille(braille).fetch(2).scan(/.{1,2}/)
-  end
-
-  def braille_group(braille)
-    top = top_row(braille)
-    mid = mid_row(braille)
-    bot = bot_row(braille)
+  def braille_rows(braille)
+    top = split_braille(braille)[0].scan(/.{1,2}/)
+    mid = split_braille(braille)[1].scan(/.{1,2}/)
+    bot = split_braille(braille)[2].scan(/.{1,2}/)
     top.zip(mid, bot)
   end
 
-# [["0.", "00", ".."], ["0.", ".0", ".."]]
   def braille_to_english(braille)
-    braille_group(braille).map do |letter|
+    braille_rows(braille).map do |letter|
       braille_chars.invert[letter]
     end
   end
