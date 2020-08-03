@@ -71,18 +71,24 @@ class Translator
     split_braille(braille).fetch(2).scan(/.{1,2}/)
   end
 
-# [["0.0."], ["00.0"], ["...."]]
-  # def braille_to_rows(braille)
-  #   top = []
-  #   mid = []
-  #   bot = []
-  #   array = braille.split("\n")
-  #   top << array[0]
-  #   mid << array[1]
-  #   bot << array[2]
-  #   top.zip(mid, bot).transpose
-  # end
+  def braille_group(braille)
+    top = top_row(braille)
+    mid = mid_row(braille)
+    bot = bot_row(braille)
+    top.zip(mid, bot)
+  end
 
+# [["0.", "00", ".."], ["0.", ".0", ".."]]
+  def braille_to_english(braille)
+    braille_group(braille).map do |letter|
+      @braille[letter]
+    end
+  end
+
+  def display_english(braille)
+    require "pry"; binding.pry
+    braille_to_english(braille).join
+  end
 
 
 end

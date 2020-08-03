@@ -136,7 +136,13 @@ class TranslatorTest < Minitest::Test
   def test_it_can_group_braille_together
     translator = Translator.new
 
-    assert_equal "0.\n00\n..", translator.braille_group("0.0.\n00.0\n....")
+    assert_equal [["0.", "00", ".."], ["0.", ".0", ".."]], translator.braille_group("0.0.\n00.0\n....")
+  end
+
+  def test_it_can_display_english
+    translator = Translator.new
+
+    assert_equal "he", translator.display_english("0.0.\n00.0\n....")
   end
 
 end
