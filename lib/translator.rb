@@ -50,7 +50,6 @@ class Translator
     top.zip(mid, bot)
   end
 
-# [["0.", "00", ".."], ["0.", ".0", ".."]]
   def braille_to_english(braille)
     braille_rows(braille).map do |letter|
       braille_chars.invert[letter]
