@@ -8,13 +8,9 @@ class Translator
   end
 
   def characters_to_braille(message)
-  
-
-    result = []
-    create_characters(message).each do |character|
-      result << braille_chars[character]
+    create_characters(message).map do |char|
+      braille_chars[char]
     end
-    result
   end
 
   def format_braille(message)
