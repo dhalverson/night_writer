@@ -91,18 +91,18 @@ class TranslatorTest < Minitest::Test
   #   assert_equal "0.0.\n0.\n....\n..\n....\n..", translator.display_braille("aaa")
   # end
 
-  def test_it_can_break_braille_into_three_rows
-    skip
-    translator = Translator.new
-
-    assert_equal [["0."], [".."], [".."]], translator.braille_to_rows("0.\n..\n..")
-  end
-
-  def test_it_can_return_braille_word_into_three_rows
-    translator = Translator.new
-
-    assert_equal [["0.0."], ["00.0"], ["...."]], translator.braille_to_rows("0.0.\n00.0\n....")
-  end
+  # def test_it_can_break_braille_into_three_rows
+  #   skip
+  #   translator = Translator.new
+  #
+  #   assert_equal [["0."], [".."], [".."]], translator.braille_to_rows("0.\n..\n..")
+  # end
+  #
+  # def test_it_can_return_braille_word_into_three_rows
+  #   translator = Translator.new
+  #
+  #   assert_equal [["0.0."], ["00.0"], ["...."]], translator.braille_to_rows("0.0.\n00.0\n....")
+  # end
 
   # def test_it_can_return_braille_to_english
   #   translator = Translator.new
@@ -113,7 +113,13 @@ class TranslatorTest < Minitest::Test
   def test_it_can_split_braille_message
     translator = Translator.new
 
-    assert_equal [["0.0."], ["00.0"], ["...."]], translator.split_braille("0.0.\n00.0\n....")
+    assert_equal ["0.0.", "00.0", "...."], translator.split_braille("0.0.\n00.0\n....")
+  end
+
+  def test_it_can_return_first
+    translator = Translator.new
+
+    assert_equal ["0.", "00", ".."], translator.first_element("0.0.\n00.0\n....")
   end
 
 

@@ -7,7 +7,6 @@ class Translator
 
   def create_characters(message)
     message.downcase.chars
-    require "pry"; binding.pry
   end
 
   def characters_to_braille(message)
@@ -55,7 +54,10 @@ class Translator
     message.chars.count
   end
 
-
+  def split_braille(braille)
+    string = (braille.length / 3)
+    braille.scan(/.{1,#{string}}/)
+  end
 
 
 
