@@ -90,41 +90,28 @@ class TranslatorTest < Minitest::Test
     translator = Translator.new
 
     assert_equal ["a"], translator.braille_to_english("0.\n..\n..")
+    assert_equal ["z"], translator.braille_to_english("0.\n.0\n00")
   end
 
   def test_it_can_split_braille_message
     translator = Translator.new
 
+    assert_equal ["0.", "00", ".."], translator.split_braille("0.\n00\n..")
     assert_equal ["0.0.", "00.0", "...."], translator.split_braille("0.0.\n00.0\n....")
-  end
-
-  def test_it_can_return_top_row
-    translator = Translator.new
-
-    assert_equal ["0.", "0."], translator.top_row("0.0.\n00.0\n....")
-  end
-
-  def test_it_can_return_mid_row
-    translator = Translator.new
-
-    assert_equal ["00", ".0"], translator.mid_row("0.0.\n00.0\n....")
-  end
-  def test_it_can_return_bot_row
-    translator = Translator.new
-
-    assert_equal ["..", ".."], translator.bot_row("0.0.\n00.0\n....")
   end
 
   def test_it_can_group_braille_together
     translator = Translator.new
 
-    assert_equal [["0.", "00", ".."], ["0.", ".0", ".."]], translator.braille_group("0.0.\n00.0\n....")
+    assert_equal [["0.", "00", ".."]], translator.braille_rows("0.\n00\n..")
+    assert_equal [["0.", "00", ".."], ["0.", ".0", ".."]], translator.braille_rows("0.0.\n00.0\n....")
   end
 
-  def test_it_can_display_english
+  def test_it_can_display_english_words
     translator = Translator.new
 
     assert_equal "he", translator.display_english("0.0.\n00.0\n....")
+    assert_equal "hello world", translator.display_english("0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...")
   end
 
 end
