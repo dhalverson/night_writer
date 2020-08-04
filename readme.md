@@ -27,6 +27,16 @@ This will all be run from the command line.
 4. Limited time to complete project
 5. Fully solo project
 
+## Growth
+
+1. Use of modules when no state is required
+2. Used a for loop to loop through a slice! method automatically
+3. Extensive testing of specific display patterns including \n
+4. Use of Pry to troubleshoot code, and not to use !!! to exit all the time
+5. Passing arguments from methods to methods
+6. FileIO and reading/writing to files
+7. Chunking problems into smaller(helper) issues
+
 ### Executing program
 
 Program is run from your command line
