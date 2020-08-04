@@ -54,9 +54,10 @@ class Translator
   end
 
   def braille_rows(braille)
-    top = split_braille(braille)[0].scan(/.{1,2}/)
-    mid = split_braille(braille)[1].scan(/.{1,2}/)
-    bot = split_braille(braille)[2].scan(/.{1,2}/)
+    braille_split = split_braille(braille)
+    top = braille_split[0].scan(/.{1,2}/)
+    mid = braille_split[1].scan(/.{1,2}/)
+    bot = braille_split[2].scan(/.{1,2}/)
     top.zip(mid, bot)
   end
 
