@@ -3,6 +3,10 @@ require './lib/alphabetable'
 class Translator
   include Alphabetable
 
+  def message_length(message)
+    message.chars.count
+  end
+
   def create_characters(message)
     message.downcase.chars
   end
@@ -19,25 +23,30 @@ class Translator
 
   def display_braille(message)
     result = []
-    if message_length(message) < 40
-      result << format_braille(message)[0].join("") << "\n"
-      result << format_braille(message)[1].join("") << "\n"
-      result << format_braille(message)[2].join("")
-    else
-      result << format_braille(message)[0].slice!(0..79) << "\n"
-      result << format_braille(message)[1].slice!(0..79) << "\n"
-      result << format_braille(message)[2].slice!(0..79) << "\n"
-    end
-    result.join
+    result << format_braille(message)[0] << "\n"
+    result << format_braille(message)[1] << "\n"
+    result << format_braille(message)[2]
+    return result.join
   end
 
 
 
 
 
-  def message_length(message)
-    message.chars.count
-  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   def split_braille(braille)
     braille.split(/\n/)
