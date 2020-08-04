@@ -1,8 +1,8 @@
-require './lib/alpha'
+require './lib/alphabetable'
 require './lib/translator'
 
 class NightReader
-  include Alpha
+  include Alphabetable
 
     input_file = ARGV[1]
     output_file = ARGV[0]
