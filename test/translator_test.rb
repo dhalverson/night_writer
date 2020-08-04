@@ -79,9 +79,8 @@ class TranslatorTest < Minitest::Test
   # def test_it_can_translate_over_40_chars_to_new_line
   #   translator = Translator.new
   #
-  #   # expected = "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n0.\n.0\n00"
-  #   # assert_equal expected, translator.display_braille("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz")
-  #   assert_equal "0.0.\n0.\n....\n..\n....\n..", translator.display_braille("aaa")
+  #   expected = "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n0.\n.0\n00"
+  #   assert_equal expected, translator.display_long_braille("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz")
   # end
 
   def test_it_can_split_braille_message
@@ -111,5 +110,4 @@ class TranslatorTest < Minitest::Test
     assert_equal "he", translator.display_english("0.0.\n00.0\n....")
     assert_equal "hello world", translator.display_english("0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...")
   end
-
 end

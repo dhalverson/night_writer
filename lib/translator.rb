@@ -13,7 +13,7 @@ class Translator
 
   def characters_to_braille(message)
     create_characters(message).map do |char|
-      braille_chars[char]
+      braille_chars[char] ||= ["x", "x", "x"]
     end
   end
 
@@ -23,30 +23,31 @@ class Translator
 
   def display_braille(message)
     result = []
-    result << format_braille(message)[0] << "\n"
-    result << format_braille(message)[1] << "\n"
-    result << format_braille(message)[2]
+    braille_message = format_braille(message)
+    result << braille_message[0] << "\n"
+    result << braille_message[1] << "\n"
+    result << braille_message[2]
     return result.join
   end
 
+  def display_long_braille(message)
+    result = []
+    braille_message = format_braille(message)
+    for array in format_braille(message) do
+      result << braille_message[0].slice!(0..39) << "\n"
+      result << braille_message[1].slice!(0..39) << "\n"
+      result << braille_message[2].slice!(0..39) << "\n"
+    end
+    return result.join
+  end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  def display_all_braille(message)
+    if message_length(message) >= 40
+      display_long_braille(message)
+    else
+      display_braille(message)
+    end
+  end
 
   def split_braille(braille)
     braille.split(/\n/)
@@ -68,6 +69,4 @@ class Translator
   def display_english(braille)
     braille_to_english(braille).join
   end
-
-
 end
